@@ -58,8 +58,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(UrlSchema.AUTH, UrlSchema.AUTH + "/**",
-                        "/swagger-ui.html", "/swagger-ui", "/v2/api-docs").permitAll()
+                .antMatchers(UrlSchema.AUTH, UrlSchema.AUTH + "/**", "//swagger-ui.html",
+                        "/swagger-ui.html/" + "/**", "/swagger-ui", "/v2/api-docs").permitAll()
                 .antMatchers(UrlSchema.APP, UrlSchema.APP + "/**").hasAuthority(Role.USER.getName())
                 .anyRequest().authenticated()
                 .and()

@@ -5,6 +5,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -21,11 +23,20 @@ import java.util.Collections;
 //@EnableCaching
 @ComponentScan(value = "ru.ilka.jogger")
 @PropertySource("classpath:application.properties")
-public class WebMvcConfig {
+public class WebMvcConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("swagger-ui.html")
+                .addResourceLocations("classpath:/META-INF/resources/");
+
+        registry.addResourceHandler("/webjars/**")
+                .addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
 
     /* Swagger Documentation
-    http://localhost:8088/api/v2/api-docs
-    http://localhost:8088/api/swagger-ui.html
+    http://localhost:8088/v2/api-docs
+    http://localhost:8088/swagger-ui.html#/
     */
     @Bean
     public Docket api() {
