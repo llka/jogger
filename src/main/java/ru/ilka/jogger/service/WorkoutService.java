@@ -26,6 +26,4 @@ public class WorkoutService {
     public List<Workout> findWorkoutsBetweenStartDates(Date startDateMin, Date startDateMax) {
         return workoutRepository.findByStartDateTimeBetween(startDateMin, startDateMax);
     }
-
-
 }

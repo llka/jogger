@@ -17,7 +17,8 @@ public class Workout implements DatabaseEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private @Positive Long distanceInKm;
+    @Positive
+    private Long distanceInKm;
 
     @NotNull
     private Date startDateTime;

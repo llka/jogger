@@ -21,9 +21,6 @@ public class ReportService {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private WorkoutService workoutService;
-
     public List<UserAverageWorkoutReportDTO> getAverageReportsByWeeks() {
         List<User> users = userService.getAll();
         List<UserAverageWorkoutReportDTO> userAverageWorkoutReportDTOList = new ArrayList<>(users.size());
