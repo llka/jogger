@@ -11,8 +11,6 @@ import ru.ilka.jogger.entity.User;
 import ru.ilka.jogger.service.UserService;
 import ru.ilka.jogger.util.UrlSchema;
 
-import javax.validation.Valid;
-
 @RestController
 @RequestMapping(value = UrlSchema.AUTH)
 public class AuthController {

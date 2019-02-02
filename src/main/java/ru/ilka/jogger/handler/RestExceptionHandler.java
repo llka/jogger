@@ -34,7 +34,6 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
-
     private HttpHeaders jsonMediaTypeHeader() {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.setContentType(MediaType.APPLICATION_JSON);
